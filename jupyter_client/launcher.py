@@ -75,7 +75,7 @@ def launch_kernel(cmd, stdin=None, stdout=None, stderr=None, env=None,
     )
 
     # Spawn a kernel.
-    if sys.platform == 'win32':
+    if sys.platform == 'win32' or sys.platform == 'cli':
         # Popen on Python 2 on Windows cannot handle unicode args or cwd
         cmd = [ cast_bytes_py2(c, encoding) for c in cmd ]
         if cwd:
