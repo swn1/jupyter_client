@@ -91,9 +91,9 @@ MAX_BYTES = 1024
 # ISO8601-ify datetime objects
 # allow unicode
 # disallow nan, because it's not actually valid JSON
-json_packer = lambda obj: jsonapi.dumps(obj, default=date_default,
+json_packer = lambda obj: bytes(jsonapi.dumps(obj, default=date_default,
     ensure_ascii=False, allow_nan=False,
-)
+))
 json_unpacker = lambda s: jsonapi.loads(s)
 
 pickle_packer = lambda o: pickle.dumps(squash_dates(o), PICKLE_PROTOCOL)

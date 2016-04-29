@@ -132,7 +132,7 @@ def write_connection_file(fname=None, shell_port=0, iopub_port=0, stdin_port=0, 
     cfg['kernel_name'] = kernel_name
 
     with open(fname, 'w') as f:
-        f.write(json.dumps(cfg, indent=2))
+        f.write(bytes(json.dumps(cfg, indent=2)))
 
     return fname, cfg
 
