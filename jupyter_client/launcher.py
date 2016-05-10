@@ -55,7 +55,7 @@ def launch_kernel(cmd, stdin=None, stdout=None, stderr=None, env=None,
 
     # If this process in running on pythonw, we know that stdin, stdout, and
     # stderr are all invalid.
-    redirect_out = sys.executable.endswith('pythonw.exe')
+    redirect_out = not sys.executable or sys.executable.endswith('pythonw.exe')
     if redirect_out:
         blackhole = open(os.devnull, 'w')
         _stdout = blackhole if stdout is None else stdout
