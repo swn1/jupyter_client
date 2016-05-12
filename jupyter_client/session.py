@@ -94,7 +94,7 @@ MAX_BYTES = 1024
 json_packer = lambda obj: bytes(jsonapi.dumps(obj, default=date_default,
     ensure_ascii=False, allow_nan=False,
 ))
-json_unpacker = lambda s: jsonapi.loads(s)
+json_unpacker = lambda s: jsonapi.loads(str(s))
 
 pickle_packer = lambda o: pickle.dumps(squash_dates(o), PICKLE_PROTOCOL)
 pickle_unpacker = pickle.loads

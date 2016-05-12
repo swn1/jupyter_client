@@ -130,7 +130,7 @@ def launch_kernel(cmd, stdin=None, stdout=None, stderr=None, env=None,
         get_logger().error(msg)
         raise
 
-    if sys.platform == 'win32':
+    if sys.platform == 'win32' or sys.platform == 'cli':
         # Attach the interrupt event to the Popen objet so it can be used later.
         proc.win32_interrupt_event = interrupt_event
 
